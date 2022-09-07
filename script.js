@@ -33,16 +33,21 @@ const teamMembers = [
 
 console.log(teamMembers);
 
-const arrayCardsImg = document.querySelectorAll(".card");
-console.log(arrayCardsImg)
+const rowContainer = document.querySelector(".row")
 
-arrayCardsText = document.querySelectorAll(".card-body")
-console.log(arrayCardsText)
 
 for (let i = 0; i < teamMembers.length; i++) {
-    arrayCardsImg[i].innerHTML = `<img src=img/${teamMembers[i].photo}>`;
-    arrayCardsImg[i].append(arrayCardsText[i]);
-    arrayCardsText[i].innerHTML = `<h5> ${teamMembers[i].nameSurname} </h5>`
-    arrayCardsText[i].innerHTML += `<p> ${teamMembers[i].role} </p>`
+    const col4Container = document.createElement("div")
+    col4Container.classList.add("col-4", "my-2")
+    const arrayCardsImg = document.createElement("div");
+    arrayCardsImg.classList.add("card")
+    const arrayCardsText = document.createElement("div")
+    arrayCardsText.classList.add("card-body")
+    col4Container.append(arrayCardsImg)
+    arrayCardsImg.innerHTML = `<img src=img/${teamMembers[i].photo}>`;
+    arrayCardsImg.append(arrayCardsText);
+    arrayCardsText.innerHTML = `<h5> ${teamMembers[i].nameSurname} </h5>`
+    arrayCardsText.innerHTML += `<p> ${teamMembers[i].role} </p>`
+    rowContainer.append(col4Container)
 }
 
